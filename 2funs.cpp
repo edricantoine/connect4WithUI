@@ -80,9 +80,6 @@ pair<bool, char> isWinner(std::vector<char>& grid, char aiMark, char hMark) {
     temp.second = '-';
     return temp;
 
-  
-
-
 }
 
 
@@ -92,7 +89,6 @@ int minimax(std::vector<char>& grid, int depth, bool maxim, char aiMark, char hM
     
     //result.first will be true if game is over, and result.second is:
     //'X' if ai wins, 'O' if human wins, '-' if game is not over or if it ends with tie
-   
     
     if(result.first != false || depth == 0) {
 
@@ -102,127 +98,64 @@ int minimax(std::vector<char>& grid, int depth, bool maxim, char aiMark, char hM
 	        return -depth; //Human wins (minimizing)
         } else {
 	        return 0; //Tie or depth = 0
-	}
-
-    
-
-        
-
-    } else {
-        
+	    }
+    } else {  
         if(maxim == true) {
             int best = INT_MIN;
-
             for(int i = 0; i < 16; i++) {
-                
-	     
-
                     if(grid[i] == '-') { //is space empty?
-		  
                         grid[i] = aiMark; //editing board
-		    
                         int score = minimax(grid, depth - 1, !maxim, aiMark, hMark, al, be); //call minimax with "new" board
                         best = max(best, score); //update max
 		                grid[i] = '-'; //backtrack
 			            al = best; //update alpha
 			            if(al >= be) {
-                            
 			                break; //pruning
-			            
 			            }
-
-                   
-
-
-                }
-
+                    }   
             }
-	        
-            
-
             return best; //return max score
-
         } else {
-
-        int worst = INT_MAX;
-
-        for(int i = 0; i < 16; i++) {
-           
-
-                if(grid[i] == '-') {
-                    grid[i] = hMark;
-                    int score = minimax(grid, depth - 1, !maxim, aiMark, hMark, al, be);
-                    worst = min(worst, score);
-		            grid[i] = '-';
-			        be = worst;
-			        if(be <= al) {  //same as the maximizing player but is minimizing instead
-                        
-			            break;
-			        }
-
-                   
+            int worst = INT_MAX;
+            for(int i = 0; i < 16; i++) {
+                    if(grid[i] == '-') {
+                        grid[i] = hMark;
+                        int score = minimax(grid, depth - 1, !maxim, aiMark, hMark, al, be);
+                        worst = min(worst, score);
+		                grid[i] = '-';
+			            be = worst;
+			            if(be <= al) {  //same as the maximizing player but is minimizing instead
+			                break;
+			            }
                     }
-	        
-	        
-
-                }
-            
-
-
-        return worst; //return min score
+            }
+            return worst; //return min score
         }
-
     }
-
-    
-
 }
 
 
 void bestMove(std::vector<char>& grid,  char aiMark, char hMark) {
-
     int best = INT_MIN; //best score for ai
     int finalSpot = -1; //place where ai will put mark
-    
-
     pair<bool, char> result = isWinner(grid, aiMark, hMark); //explained in minimax function comments
-    
     if(result.first != false) {
       return; //if game is supposed to be over
     }
-
-
     for(int i = 0; i < 16; i++) {
-        
-	 
-
             if(grid[i] == '-') {
-	      
                 grid[i] = aiMark;
                 int score = minimax(grid, 8, false, aiMark, hMark, INT_MIN, INT_MAX);
-                
-                
 	            if(score > best) {
                     best = score;
                     finalSpot = i; //update best score and best spot
 		            
                 }
 		        grid[i] = '-'; //backtrack
-	        
-               
-                
             }
-	    
-
-               
-
         }
-    
-
     grid[finalSpot] = aiMark; //AI finally updates grid
     return;
-    
-
 }
 
 

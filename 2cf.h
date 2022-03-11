@@ -21,6 +21,9 @@ class myFrame : public wxFrame
 {
     public:
         myFrame();
+        void readGrid(wxCommandEvent& event);
+        void makePlayerMove(wxCommandEvent& event);
+
         wxButton * button00;
         wxButton * button01;
         wxButton * button02;
@@ -37,15 +40,32 @@ class myFrame : public wxFrame
         wxButton * button31;
         wxButton * button32;
         wxButton * button33;
-        char aiMark = 'X';
-        char hMark = 'O';
 
-        std::vector<char> grid = vector<char>(16, '-');
+        wxStaticText * stateLabel;
+    
+        vector<wxButton*> buttons;
         wxSize* buttonSize = new wxSize(20, 20);
         wxPoint* b00p = new wxPoint(300/5, 300/5);
         wxPoint* b01p = new wxPoint(600/5, 300/5);
+        wxPoint* b02p = new wxPoint(900/5, 300/5);
+        wxPoint* b03p = new wxPoint(1200/5, 300/5);
+        wxPoint* b10p = new wxPoint(300/5, 600/5);
+        wxPoint* b11p = new wxPoint(600/5, 600/5);
+        wxPoint* b12p = new wxPoint(900/5, 600/5);
+        wxPoint* b13p = new wxPoint(1200/5, 600/5);
+        wxPoint* b20p = new wxPoint(300/5, 900/5);
+        wxPoint* b21p = new wxPoint(600/5, 900/5);
+        wxPoint* b22p = new wxPoint(900/5, 900/5);
+        wxPoint* b23p = new wxPoint(1200/5, 900/5);
+        wxPoint* b30p = new wxPoint(300/5, 1200/5);
+        wxPoint* b31p = new wxPoint(600/5, 1200/5);
+        wxPoint* b32p = new wxPoint(900/5, 1200/5);
+        wxPoint* b33p = new wxPoint(1200/5, 1200/5);
 
-        wxDECLARE_EVENT_TABLE();
+        wxPoint* blp = new wxPoint(330 / 4, 20);
+
+
+        //wxDECLARE_EVENT_TABLE();
         
 
     private:
@@ -71,6 +91,7 @@ enum
     ID_B30 = 130,
     ID_B31 = 131,
     ID_B32 = 132,
-    ID_B33 = 133
+    ID_B33 = 133,
+    ID_Label = 150
 };
 #endif
