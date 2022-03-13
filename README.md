@@ -11,7 +11,7 @@ c++ -o connectfour 2cf.cpp 2funs.cpp `wx-config --cxxflags --libs`
 UI created using the free wxWidgets library.
 
 Enjoy!
-CURRENTLY A WORK IN PROGRESS.
+
 -Edric
 
 
