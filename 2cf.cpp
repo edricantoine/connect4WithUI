@@ -16,44 +16,192 @@ char aiMark = 'X';
 char hMark = 'O';
 
 std::vector<char> grid = vector<char>(16, '-');
+bool gameOn = true;
 
 wxIMPLEMENT_APP(myApp);
 
 void myFrame::makePlayerMove(wxCommandEvent& event) {
     auto *btn = (wxButton *) event.GetEventObject();
+    pair<bool, char> result;
+    if(gameOn) {
     if (btn == button00) {
-        cout << "woohoo!" <<endl;
+        if(btn->GetLabel() != "-") {
+            stateLabel->SetLabel("You can't place a piece there.");
+        } else {
+            grid[0] = hMark;
+            readGridVoid();
+            bestMove(grid, aiMark, hMark);
+            readGridVoid();
+            stateLabel->SetLabel("Click to place a piece!");
+        }
     } else if (btn == button01) {
-        cout<< "Scrombulous G." << endl;
+        if(btn->GetLabel() != "-") {
+            stateLabel->SetLabel("You can't place a piece there.");
+        } else {
+            grid[1] = hMark;
+            readGridVoid();
+            bestMove(grid, aiMark, hMark);
+            readGridVoid();
+            stateLabel->SetLabel("Click to place a piece!");
+        }
     } else if (btn == button02) {
-        cout<< "krinkly" << endl;
+        if(btn->GetLabel() != "-") {
+            stateLabel->SetLabel("You can't place a piece there.");
+        } else {
+            grid[2] = hMark;
+            readGridVoid();
+            bestMove(grid, aiMark, hMark);
+            readGridVoid();
+            stateLabel->SetLabel("Click to place a piece!");
+        }
     } else if (btn == button03) {
-        
+        if(btn->GetLabel() != "-") {
+            stateLabel->SetLabel("You can't place a piece there.");
+        } else {
+            grid[3] = hMark;
+            readGridVoid();
+            bestMove(grid, aiMark, hMark);
+            readGridVoid();
+            stateLabel->SetLabel("Click to place a piece!");
+        }
     } else if (btn == button10) {
-        
+        if(btn->GetLabel() != "-") {
+            stateLabel->SetLabel("You can't place a piece there.");
+        } else {
+            grid[4] = hMark;
+            readGridVoid();
+            bestMove(grid, aiMark, hMark);
+            readGridVoid();
+            stateLabel->SetLabel("Click to place a piece!");
+        }
     } else if (btn == button11) {
-        
+        if(btn->GetLabel() != "-") {
+            stateLabel->SetLabel("You can't place a piece there.");
+        } else {
+            grid[5] = hMark;
+            readGridVoid();
+            bestMove(grid, aiMark, hMark);
+            readGridVoid();
+            stateLabel->SetLabel("Click to place a piece!");
+        }
     } else if (btn == button12) {
-        
+        if(btn->GetLabel() != "-") {
+            stateLabel->SetLabel("You can't place a piece there.");
+        } else {
+            grid[6] = hMark;
+            readGridVoid();
+            bestMove(grid, aiMark, hMark);
+            readGridVoid();
+            stateLabel->SetLabel("Click to place a piece!");
+        }
     } else if (btn == button13) {
-        
+        if(btn->GetLabel() != "-") {
+            stateLabel->SetLabel("You can't place a piece there.");
+        } else {
+            grid[7] = hMark;
+            readGridVoid();
+            bestMove(grid, aiMark, hMark);
+            readGridVoid();
+            stateLabel->SetLabel("Click to place a piece!");
+        }
     } else if (btn == button20) {
-        
+        if(btn->GetLabel() != "-") {
+            stateLabel->SetLabel("You can't place a piece there.");
+        } else {
+            grid[8] = hMark;
+            readGridVoid();
+            bestMove(grid, aiMark, hMark);
+            readGridVoid();
+            stateLabel->SetLabel("Click to place a piece!");
+        }
     } else if (btn == button21) {
-        
+        if(btn->GetLabel() != "-") {
+            stateLabel->SetLabel("You can't place a piece there.");
+        } else {
+            grid[9] = hMark;
+            readGridVoid();
+            bestMove(grid, aiMark, hMark);
+            readGridVoid();
+            stateLabel->SetLabel("Click to place a piece!");
+        }
     } else if (btn == button22) {
-        
+        if(btn->GetLabel() != "-") {
+            stateLabel->SetLabel("You can't place a piece there.");
+        } else {
+            grid[10] = hMark;
+            readGridVoid();
+            bestMove(grid, aiMark, hMark);
+            readGridVoid();
+            stateLabel->SetLabel("Click to place a piece!");
+        }
     } else if (btn == button23) {
-        
+        if(btn->GetLabel() != "-") {
+            stateLabel->SetLabel("You can't place a piece there.");
+        } else {
+            grid[11] = hMark;
+            readGridVoid();
+            bestMove(grid, aiMark, hMark);
+            readGridVoid();
+            stateLabel->SetLabel("Click to place a piece!");
+        }
     } else if (btn == button30) {
-        
+        if(btn->GetLabel() != "-") {
+            stateLabel->SetLabel("You can't place a piece there.");
+        } else {
+            grid[12] = hMark;
+            readGridVoid();
+            bestMove(grid, aiMark, hMark);
+            readGridVoid();
+            stateLabel->SetLabel("Click to place a piece!");
+        }
     } else if (btn == button31) {
-        
+        if(btn->GetLabel() != "-") {
+            stateLabel->SetLabel("You can't place a piece there.");
+        } else {
+            grid[13] = hMark;
+            readGridVoid();
+            bestMove(grid, aiMark, hMark);
+            readGridVoid();
+            stateLabel->SetLabel("Click to place a piece!");
+        }
     } else if (btn == button32) {
-        
+        if(btn->GetLabel() != "-") {
+            stateLabel->SetLabel("You can't place a piece there.");
+        } else {
+            grid[14] = hMark;
+            readGridVoid();
+            bestMove(grid, aiMark, hMark);
+            readGridVoid();
+            stateLabel->SetLabel("Click to place a piece!");
+        }
     } else if (btn == button33) {
-        
-    } 
+        if(btn->GetLabel() != "-") {
+            stateLabel->SetLabel("You can't place a piece there.");
+        } else {
+            grid[15] = hMark;
+            readGridVoid();
+            bestMove(grid, aiMark, hMark);
+            readGridVoid();
+            stateLabel->SetLabel("Click to place a piece!");
+        }
+    }  else {
+        stateLabel->SetLabel("An unexpected error occurred...");
+    }
+}
+
+    result = isWinner(grid, aiMark, hMark);
+            if(result.first != false) {
+	            if(result.second == aiMark) {
+                    stateLabel->SetLabel("The computer wins!");
+                } else if (result.second == hMark) {
+                    stateLabel->SetLabel("You win!");
+                } else {
+                    stateLabel->SetLabel("Draw! Nobody wins.");
+                }
+
+                gameOn = false;
+
+            }
     
 }
 
@@ -69,18 +217,33 @@ void myFrame::OnAbout(wxCommandEvent& event)
 
 void myFrame::OnHello(wxCommandEvent& event)
 {
-    wxLogMessage("...");
+    srand(time(NULL));
+    grid = vector<char>(16, '-');
+    readGridVoid();
+    gameOn = true;
+    int n = rand() % 2; 
+    if(n == 0) {
+        stateLabel->SetLabel("The opponent will go first.");
+        bestMove(grid, 'X', 'O');
+    } else {
+        stateLabel->SetLabel("You will go first.");
+    }
+    readGridVoid();
 }
 
-void myFrame::readGrid(wxCommandEvent& event) {
-    cout<< b00p <<endl;
-    return;
+
+void myFrame::readGridVoid() {
+    for(int i = 0; i < grid.size(); i++) {
+        char c = grid[i];
+        buttons[i]->SetLabel(c);
+    }
 }
+
 
 myFrame::myFrame() : wxFrame(NULL, wxID_ANY, "Connect Four"){
     wxMenu * menuFile = new wxMenu;
-    menuFile->Append(ID_Hello, "&Hello...\tCtrl-H",
-                     "Help string shown in status bar for this menu item");
+    menuFile->Append(ID_Hello, "&Restart\tCtrl-H",
+                     "Restart the game");
     menuFile->AppendSeparator();
     menuFile->Append(wxID_EXIT);
     wxMenu *menuHelp = new wxMenu;
@@ -156,9 +319,18 @@ myFrame::myFrame() : wxFrame(NULL, wxID_ANY, "Connect Four"){
 }
 
 bool myApp::OnInit() {
+    srand(time(NULL));
+    int n = rand() % 2; 
     myFrame * frame = new myFrame();
     frame->SetSize(wxSize(320, 330));
     frame->Show(true);
+    if(n == 0) {
+        frame->stateLabel->SetLabel("The opponent will go first.");
+        bestMove(grid, 'X', 'O');
+    } else {
+        frame->stateLabel->SetLabel("You will go first.");
+    }
+    frame->readGridVoid();
     return true;
 }
 

@@ -23,6 +23,7 @@ class myFrame : public wxFrame
         myFrame();
         void readGrid(wxCommandEvent& event);
         void makePlayerMove(wxCommandEvent& event);
+        void readGridVoid();
 
         wxButton * button00;
         wxButton * button01;
