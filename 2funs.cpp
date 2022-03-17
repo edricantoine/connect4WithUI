@@ -135,7 +135,8 @@ int minimax(std::vector<char>& grid, int depth, bool maxim, char aiMark, char hM
 }
 
 
-void bestMove(std::vector<char>& grid,  char aiMark, char hMark) {
+void bestMove(std::vector<char>& grid,  char aiMark, char hMark, int diff) {
+    srand(time(NULL));
     int best = INT_MIN; //best score for ai
     int finalSpot = -1; //place where ai will put mark
     pair<bool, char> result = isWinner(grid, aiMark, hMark); //explained in minimax function comments
@@ -154,7 +155,28 @@ void bestMove(std::vector<char>& grid,  char aiMark, char hMark) {
 		        grid[i] = '-'; //backtrack
             }
         }
-    grid[finalSpot] = aiMark; //AI finally updates grid
+    
+    if(diff == 2) {
+        grid[finalSpot] = aiMark; //AI finally updates grid
+    } else if (diff == 1) {
+
+        int n = rand() % 3;
+        if(n != 0) {
+            grid[finalSpot] = aiMark; //AI finally updates grid
+        } else {
+            int x = rand() % 16;
+            grid[x] = aiMark;
+        }
+
+    } else if (diff == 0) {
+        int n = rand() % 2;
+        if(n == 0) {
+            grid[finalSpot] = aiMark; //AI finally updates grid
+        } else {
+            int x = rand() % 16;
+            grid[x] = aiMark;
+        }
+    }
     return;
 }
 

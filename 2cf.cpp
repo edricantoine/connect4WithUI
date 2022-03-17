@@ -14,6 +14,7 @@
 using namespace std;
 char aiMark = 'X';
 char hMark = 'O';
+int difficultyLevel = 0;  //0 = easy, 1 = medium, 2 = hard
 
 std::vector<char> grid = vector<char>(16, '-');
 bool gameOn = true;
@@ -30,7 +31,7 @@ void myFrame::makePlayerMove(wxCommandEvent& event) {
         } else {
             grid[0] = hMark;
             readGridVoid();
-            bestMove(grid, aiMark, hMark);
+            bestMove(grid, aiMark, hMark, difficultyLevel);
             readGridVoid();
             stateLabel->SetLabel("Click to place a piece!");
         }
@@ -40,7 +41,7 @@ void myFrame::makePlayerMove(wxCommandEvent& event) {
         } else {
             grid[1] = hMark;
             readGridVoid();
-            bestMove(grid, aiMark, hMark);
+            bestMove(grid, aiMark, hMark, difficultyLevel);
             readGridVoid();
             stateLabel->SetLabel("Click to place a piece!");
         }
@@ -50,7 +51,7 @@ void myFrame::makePlayerMove(wxCommandEvent& event) {
         } else {
             grid[2] = hMark;
             readGridVoid();
-            bestMove(grid, aiMark, hMark);
+            bestMove(grid, aiMark, hMark, difficultyLevel);
             readGridVoid();
             stateLabel->SetLabel("Click to place a piece!");
         }
@@ -60,7 +61,7 @@ void myFrame::makePlayerMove(wxCommandEvent& event) {
         } else {
             grid[3] = hMark;
             readGridVoid();
-            bestMove(grid, aiMark, hMark);
+            bestMove(grid, aiMark, hMark, difficultyLevel);
             readGridVoid();
             stateLabel->SetLabel("Click to place a piece!");
         }
@@ -70,7 +71,7 @@ void myFrame::makePlayerMove(wxCommandEvent& event) {
         } else {
             grid[4] = hMark;
             readGridVoid();
-            bestMove(grid, aiMark, hMark);
+            bestMove(grid, aiMark, hMark, difficultyLevel);
             readGridVoid();
             stateLabel->SetLabel("Click to place a piece!");
         }
@@ -80,7 +81,7 @@ void myFrame::makePlayerMove(wxCommandEvent& event) {
         } else {
             grid[5] = hMark;
             readGridVoid();
-            bestMove(grid, aiMark, hMark);
+            bestMove(grid, aiMark, hMark, difficultyLevel);
             readGridVoid();
             stateLabel->SetLabel("Click to place a piece!");
         }
@@ -90,7 +91,7 @@ void myFrame::makePlayerMove(wxCommandEvent& event) {
         } else {
             grid[6] = hMark;
             readGridVoid();
-            bestMove(grid, aiMark, hMark);
+            bestMove(grid, aiMark, hMark, difficultyLevel);
             readGridVoid();
             stateLabel->SetLabel("Click to place a piece!");
         }
@@ -100,7 +101,7 @@ void myFrame::makePlayerMove(wxCommandEvent& event) {
         } else {
             grid[7] = hMark;
             readGridVoid();
-            bestMove(grid, aiMark, hMark);
+            bestMove(grid, aiMark, hMark, difficultyLevel);
             readGridVoid();
             stateLabel->SetLabel("Click to place a piece!");
         }
@@ -110,7 +111,7 @@ void myFrame::makePlayerMove(wxCommandEvent& event) {
         } else {
             grid[8] = hMark;
             readGridVoid();
-            bestMove(grid, aiMark, hMark);
+            bestMove(grid, aiMark, hMark, difficultyLevel);
             readGridVoid();
             stateLabel->SetLabel("Click to place a piece!");
         }
@@ -120,7 +121,7 @@ void myFrame::makePlayerMove(wxCommandEvent& event) {
         } else {
             grid[9] = hMark;
             readGridVoid();
-            bestMove(grid, aiMark, hMark);
+            bestMove(grid, aiMark, hMark, difficultyLevel);
             readGridVoid();
             stateLabel->SetLabel("Click to place a piece!");
         }
@@ -130,7 +131,7 @@ void myFrame::makePlayerMove(wxCommandEvent& event) {
         } else {
             grid[10] = hMark;
             readGridVoid();
-            bestMove(grid, aiMark, hMark);
+            bestMove(grid, aiMark, hMark, difficultyLevel);
             readGridVoid();
             stateLabel->SetLabel("Click to place a piece!");
         }
@@ -140,7 +141,7 @@ void myFrame::makePlayerMove(wxCommandEvent& event) {
         } else {
             grid[11] = hMark;
             readGridVoid();
-            bestMove(grid, aiMark, hMark);
+            bestMove(grid, aiMark, hMark, difficultyLevel);
             readGridVoid();
             stateLabel->SetLabel("Click to place a piece!");
         }
@@ -150,7 +151,7 @@ void myFrame::makePlayerMove(wxCommandEvent& event) {
         } else {
             grid[12] = hMark;
             readGridVoid();
-            bestMove(grid, aiMark, hMark);
+            bestMove(grid, aiMark, hMark, difficultyLevel);
             readGridVoid();
             stateLabel->SetLabel("Click to place a piece!");
         }
@@ -160,7 +161,7 @@ void myFrame::makePlayerMove(wxCommandEvent& event) {
         } else {
             grid[13] = hMark;
             readGridVoid();
-            bestMove(grid, aiMark, hMark);
+            bestMove(grid, aiMark, hMark, difficultyLevel);
             readGridVoid();
             stateLabel->SetLabel("Click to place a piece!");
         }
@@ -170,7 +171,7 @@ void myFrame::makePlayerMove(wxCommandEvent& event) {
         } else {
             grid[14] = hMark;
             readGridVoid();
-            bestMove(grid, aiMark, hMark);
+            bestMove(grid, aiMark, hMark, difficultyLevel);
             readGridVoid();
             stateLabel->SetLabel("Click to place a piece!");
         }
@@ -180,7 +181,7 @@ void myFrame::makePlayerMove(wxCommandEvent& event) {
         } else {
             grid[15] = hMark;
             readGridVoid();
-            bestMove(grid, aiMark, hMark);
+            bestMove(grid, aiMark, hMark, difficultyLevel);
             readGridVoid();
             stateLabel->SetLabel("Click to place a piece!");
         }
@@ -215,6 +216,16 @@ void myFrame::OnAbout(wxCommandEvent& event)
                  "About This App", wxOK | wxICON_INFORMATION);
 }
 
+void myFrame::makeEasy(wxCommandEvent& event) {
+    difficultyLevel = 0;
+}
+void myFrame::makeMedium(wxCommandEvent& event) {
+    difficultyLevel = 1;
+}
+void myFrame::makeHard(wxCommandEvent& event) {
+    difficultyLevel = 2;
+}
+
 void myFrame::OnHello(wxCommandEvent& event)
 {
     srand(time(NULL));
@@ -224,7 +235,7 @@ void myFrame::OnHello(wxCommandEvent& event)
     int n = rand() % 2; 
     if(n == 0) {
         stateLabel->SetLabel("The opponent will go first.");
-        bestMove(grid, 'X', 'O');
+        bestMove(grid, 'X', 'O', difficultyLevel);
     } else {
         stateLabel->SetLabel("You will go first.");
     }
@@ -246,11 +257,15 @@ myFrame::myFrame() : wxFrame(NULL, wxID_ANY, "Connect Four"){
                      "Restart the game");
     menuFile->AppendSeparator();
     menuFile->Append(wxID_EXIT);
+    menuFile->Append(ID_Easy, "Easy Difficulty");
+    menuFile->Append(ID_Med, "Medium Difficulty");
+    menuFile->Append(ID_Hard, "Hard Difficulty");
     wxMenu *menuHelp = new wxMenu;
     menuHelp->Append(wxID_ABOUT);
     wxMenuBar *menuBar = new wxMenuBar;
     menuBar->Append(menuFile, "&File");
     menuBar->Append(menuHelp, "&Help");
+    
 
     button00 = new wxButton(this, ID_B00, _T(""), *b00p, *buttonSize, 0);
     button01 = new wxButton(this, ID_B01, _T(""), *b01p, *buttonSize, 0);
@@ -297,6 +312,9 @@ myFrame::myFrame() : wxFrame(NULL, wxID_ANY, "Connect Four"){
     Bind(wxEVT_MENU, &myFrame::OnHello, this, ID_Hello);
     Bind(wxEVT_MENU, &myFrame::OnAbout, this, wxID_ABOUT);
     Bind(wxEVT_MENU, &myFrame::OnExit, this, wxID_EXIT);
+    Bind(wxEVT_MENU, &myFrame::makeEasy, this, ID_Easy);
+    Bind(wxEVT_MENU, &myFrame::makeMedium, this, ID_Med);
+    Bind(wxEVT_MENU, &myFrame::makeHard, this, ID_Hard);
     Bind(wxEVT_BUTTON, &myFrame::makePlayerMove, this, ID_B00);
     Bind(wxEVT_BUTTON, &myFrame::makePlayerMove, this, ID_B01);
     Bind(wxEVT_BUTTON, &myFrame::makePlayerMove, this, ID_B02);
@@ -326,7 +344,7 @@ bool myApp::OnInit() {
     frame->Show(true);
     if(n == 0) {
         frame->stateLabel->SetLabel("The opponent will go first.");
-        bestMove(grid, 'X', 'O');
+        bestMove(grid, 'X', 'O', difficultyLevel);
     } else {
         frame->stateLabel->SetLabel("You will go first.");
     }

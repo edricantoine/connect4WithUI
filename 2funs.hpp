@@ -2,7 +2,7 @@
 #include <vector>
 using namespace std;
 
-void bestMove(std::vector<char>& grid, char aiMark, char hMark);
+void bestMove(std::vector<char>& grid, char aiMark, char hMark, int diff);
 
 int minimax(std::vector<char>& grid, int depth, bool maxim, char aiMark, char hMark, int al, int be);
 

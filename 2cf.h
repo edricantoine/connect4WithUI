@@ -73,10 +73,16 @@ class myFrame : public wxFrame
         void OnHello(wxCommandEvent& event);
         void OnExit(wxCommandEvent& event);
         void OnAbout(wxCommandEvent& event);
+        void makeEasy(wxCommandEvent& event);
+        void makeMedium(wxCommandEvent& event);
+        void makeHard(wxCommandEvent& event);
 };
 enum
 {
     ID_Hello = 1,
+    ID_Easy = 2,
+    ID_Med = 3,
+    ID_Hard = 4,
     ID_B00 = 100,
     ID_B01 = 101,
     ID_B02 = 102,
