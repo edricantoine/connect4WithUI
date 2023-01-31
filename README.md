@@ -1,6 +1,10 @@
 A game of Connect Four. AI uses minimax algorithm in order to play optimally.
 Now with a good UI!
 
+**CURRENTLY ONLY WORKS ON MAC.**
+
+**YOU MAY NEED TO INSTALL THE wxWidgets LIBRARY AS A TEMPORARY (!) WORKAROUND UNTIL I FIX ISSUES WITH EMBEDDING LIBRARIES WITHIN THE APP.**
+
 To compile, you need to have C++ on your machine.
 Then, navigate to the directory with the executable file, and run it. 
 If that doesn't work, try (in the same directory) :
