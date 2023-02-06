@@ -165,6 +165,9 @@ void bestMove(std::vector<char>& grid,  char aiMark, char hMark, int diff) {
             grid[finalSpot] = aiMark; //AI finally updates grid
         } else {
             int x = rand() % 16;
+            while(grid[x] != '-') {
+                x = rand() % 16;
+            }
             grid[x] = aiMark;
         }
 
@@ -174,6 +177,9 @@ void bestMove(std::vector<char>& grid,  char aiMark, char hMark, int diff) {
             grid[finalSpot] = aiMark; //AI finally updates grid
         } else {
             int x = rand() % 16;
+            while(grid[x] != '-') {
+                x = rand() % 16;
+            }
             grid[x] = aiMark;
         }
     }
